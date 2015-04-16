@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<configuration device="PIC16F1709" mcc_version="v2.10.3">
+    <managers>
+        <manager generated="true" name="Pin Manager" reloadPin="manual">
+            <setting name="package" option="DIP20"/>
+            <setting name="sorting" option="true"/>
+            <resource customName="POT" digital="false" direction="INPUT" function="AN3" ioc="0" module="ADC" name="RA4" start="false" type="pin" wpu="false"/>
+            <resource customName="REL2" digital="true" direction="OUTPUT" function="RC4" ioc="0" module="GPIO" name="RC4" start="false" type="pin" wpu="false"/>
+            <resource customName="REL1" digital="true" direction="OUTPUT" function="RC5" ioc="0" module="GPIO" name="RC5" start="false" type="pin" wpu="false"/>
+            <file checksum="943295807" modified="false" name="pin_manager.c" path="mcc_generated_files/pin_manager.c"/>
+            <file checksum="2105214346" modified="false" name="pin_manager.h" path="mcc_generated_files/pin_manager.h"/>
+        </manager>
+        <manager generated="true" name="System" reloadPin="manual">
+            <initializer comment="" name="Initialize">
+                <setting name="SPLLEN" option="disabled" register="OSCCON"/>
+                <setting name="SCS" option="INTOSC" register="OSCCON"/>
+                <setting name="IRCF" option="31KHz_LF" register="OSCCON"/>
+                <setting name="OSTS" option="intosc" register="OSCSTAT"/>
+                <setting name="HFIOFR" option="disabled" register="OSCSTAT"/>
+                <setting name="HFIOFS" option="not0.5percent_acc" register="OSCSTAT"/>
+                <setting name="SOSCR" option="disabled" register="OSCSTAT"/>
+                <setting name="PLLR" option="disabled" register="OSCSTAT"/>
+                <setting name="MFIOFR" option="disabled" register="OSCSTAT"/>
+                <setting name="LFIOFR" option="disabled" register="OSCSTAT"/>
+                <setting name="HFIOFL" option="not2percent_acc" register="OSCSTAT"/>
+                <setting name="TUN" option="0x0" register="OSCTUNE"/>
+                <additionalSetting name="pllMultiplier" option=""/>
+                <additionalSetting name="extclk" option="1.0 MHz"/>
+            </initializer>
+            <setting name="IESO" option="ON"/>
+            <setting name="BOREN" option="ON"/>
+            <setting name="PWRTE" option="OFF"/>
+            <setting name="FOSC" option="INTOSC"/>
+            <setting name="FCMEN" option="ON"/>
+            <setting name="MCLRE" option="ON"/>
+            <setting name="CP" option="OFF"/>
+            <setting name="WDTE" option="OFF"/>
+            <setting name="CLKOUTEN" option="OFF"/>
+            <setting name="WRT" option="OFF"/>
+            <setting name="ZCDDIS" option="ON"/>
+            <setting name="LPBOR" option="OFF"/>
+            <setting name="PPS1WAY" option="ON"/>
+            <setting name="LVP" option="OFF"/>
+            <setting name="STVREN" option="ON"/>
+            <setting name="PLLEN" option="ON"/>
+            <setting name="BORV" option="LO"/>
+            <setting name="generateConfigBits" option="true"/>
+            <file checksum="770779013" modified="false" name="mcc.c" path="mcc_generated_files/mcc.c"/>
+            <file checksum="2026507581" modified="false" name="mcc.h" path="mcc_generated_files/mcc.h"/>
+        </manager>
+    </managers>
+    <modules>
+        <module generated="true" mode="GPIO" name="GPIO" order="0" reloadPin="manual" type="GPIO">
+            <resource customName="REL1" digital="true" direction="OUTPUT" function="RC5" ioc="0" module="GPIO" name="RC5" start="false" type="pin" wpu="false"/>
+            <resource customName="REL2" digital="true" direction="OUTPUT" function="RC4" ioc="0" module="GPIO" name="RC4" start="false" type="pin" wpu="false"/>
+        </module>
+        <module generated="true" mode="ADC" name="ADC" order="1" reloadPin="manual" type="adc_sarcore_10bit">
+            <initializer comment="" name="Initialize">
+                <setting name="GO_nDONE" option="stop" register="ADCON0"/>
+                <setting name="ADON" option="enabled" register="ADCON0"/>
+                <setting name="CHS" option="AN0" register="ADCON0"/>
+                <setting name="ADPREF" option="VDD" register="ADCON1"/>
+                <setting name="ADFM" option="right" register="ADCON1"/>
+                <setting name="ADCS" option="FOSC/2" register="ADCON1"/>
+                <setting name="TRIGSEL" option="no_auto_trigger" register="ADCON2"/>
+                <setting name="ADRESL" option="0x0" register="ADRESL"/>
+                <setting name="ADRESH" option="0x0" register="ADRESH"/>
+            </initializer>
+            <setting name="ADI" option="false"/>
+            <resource customName="POT" function="AN3" name="RA4" type="pin"/>
+            <file checksum="1811021035" modified="false" name="adc.c" path="mcc_generated_files/adc.c"/>
+            <file checksum="2256758787" modified="false" name="adc.h" path="mcc_generated_files/adc.h"/>
+        </module>
+        <module generated="true" mode="Timer" name="TMR1" order="2" reloadPin="manual" type="tmr_mid1">
+            <initializer comment="Set Timer 1 to generate a period of 1s for 1024" name="Initialize">
+                <setting name="T1OSCEN" option="disabled" register="T1CON"/>
+                <setting name="nT1SYNC" option="do_not_synchronize" register="T1CON"/>
+                <setting name="TMR1CS" option="FOSC/4" register="T1CON"/>
+                <setting name="T1CKPS" option="1:8" register="T1CON"/>
+                <setting name="TMR1ON" option="disabled" register="T1CON"/>
+                <setting name="T1GSPM" option="disabled" register="T1GCON"/>
+                <setting name="T1GVAL" option="disabled" register="T1GCON"/>
+                <setting name="T1GSS" option="T1G" register="T1GCON"/>
+                <setting name="T1GTM" option="disabled" register="T1GCON"/>
+                <setting name="T1GPOL" option="low" register="T1GCON"/>
+                <setting name="T1GGO_nDONE" option="done" register="T1GCON"/>
+                <setting name="TMR1GE" option="disabled" register="T1GCON"/>
+                <setting name="TMR1H" option="0" register="TMR1H"/>
+                <setting name="TMR1L" option="0" register="TMR1L"/>
+                <additionalSetting name="externalFreq" option=""/>
+                <additionalSetting name="timerstart" option="enabled"/>
+            </initializer>
+            <setting name="TMRI" option="false"/>
+            <setting name="TMRGI" option="false"/>
+            <setting name="ticker" option="0"/>
+            <setting name="hasGate" option="true"/>
+            <file checksum="490895750" modified="false" name="tmr1.c" path="mcc_generated_files/tmr1.c"/>
+            <file checksum="3124446239" modified="false" name="tmr1.h" path="mcc_generated_files/tmr1.h"/>
+        </module>
+        <module generated="true" mode="Output Compare" name="CCP1" order="3" reloadPin="manual" type="ccp">
+            <initializer comment="Use the CCP1 module in compare mode to select the period with 16-bit resolution" name="Initialize">
+                <setting name="CCP1M" option="compare_softint" register="CCP1CON"/>
+                <setting name="DC1B" option="LSBs" register="CCP1CON"/>
+                <setting name="CCPR1L" option="0x0" register="CCPR1L"/>
+                <setting name="CCPR1H" option="0x0" register="CCPR1H"/>
+                <additionalSetting name="timerselpresence" option="timerselabsent"/>
+                <additionalSetting name="CTSEL" option="CCP1timer1"/>
+            </initializer>
+            <setting name="CCPI" option="false"/>
+            <file checksum="928386371" modified="false" name="ccp1.c" path="mcc_generated_files/ccp1.c"/>
+            <file checksum="961359900" modified="false" name="ccp1.h" path="mcc_generated_files/ccp1.h"/>
+        </module>
+    </modules>
+</configuration>
